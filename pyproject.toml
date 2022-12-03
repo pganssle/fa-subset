@@ -1,0 +1,80 @@
+[build-system]
+requires = [
+    "setuptools >= 42",  # At least v42 of setuptools required!
+    "versioningit",
+]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "fa_subsetter"
+authors = [{name = "Paul Ganssle", email = "paul@ganssle.io"}]
+license = {text = "Apache 2.0"}
+description = "Extract a subset of font-awesome glyphs into a new font"
+requires-python=">=3.10"
+dependencies = [
+    "fonttools[woff]>=4.38.0",
+    "click>=8.0",
+    "requests"
+]
+classifiers = [
+    "License :: OSI Approved :: Apache Software License",
+    "Intended Audience :: Developers",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+]
+dynamic = ["version"]
+
+[project.scripts]
+fa-subset = "fa_subsetter.__main__:main"
+
+[tool.setuptools]
+packages = {find = {where = ["src"]}}
+license-files = ["LICENSE"]
+
+[tool.versioningit]
+write={file="src/fa_subsetter/_version.py"}
+
+[tool.versioningit.vcs]
+method = "git"
+default-tag = "0.0.0"
+
+## Isort
+[tool.isort]
+atomic=true
+force_grid_wrap=0
+include_trailing_comma=true
+known_first_party = ["fa_subsetter"]
+known_third_party=[
+    "click",
+    "requests",
+    "fonttools"
+]
+multi_line_output=3
+use_parentheses=true
+
+## Coverage
+[tool.coverage.paths]
+source = ["src", ".tox/*/site-packages"]
+
+[tool.coverage.report]
+show_missing = true
+skip_covered = true
+
+## Pylint
+[tool.pylint.'MESSAGES CONTROL']
+disable="all"
+enable="""
+    unused-import,
+    unused-variable,
+    unpacking-non-sequence,
+    invalid-all-object,
+    used-before-assignment,
+    no-else-raise,
+    bad-format-character,
+    bad-format-string,
+    bare-except,
+"""
