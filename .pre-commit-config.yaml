@@ -1,0 +1,24 @@
+repos:
+  - repo: https://github.com/psf/black
+    rev: 22.10.0
+    hooks:
+      - id: black
+        language_version: "python3.10"
+
+  - repo: https://github.com/pre-commit/mirrors-isort
+    rev: v5.10.1
+    hooks:
+      - id: isort
+        additional_dependencies: [toml]
+        language_version: "python3.10"
+
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.4.0
+    hooks:
+      - id: trailing-whitespace
+      - id: debug-statements
+
+  - repo: https://github.com/tox-dev/tox-ini-fmt
+    rev: "0.5.2"
+    hooks:
+      - id: tox-ini-fmt
