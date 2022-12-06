@@ -6,7 +6,7 @@ requires = [
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "fa_subsetter"
+name = "fa_subset"
 authors = [{name = "Paul Ganssle", email = "paul@ganssle.io"}]
 license = {text = "Apache 2.0"}
 description = "Extract a subset of font-awesome glyphs into a new font"
@@ -29,14 +29,14 @@ classifiers = [
 dynamic = ["version"]
 
 [project.scripts]
-fa-subset = "fa_subsetter.__main__:main"
+fa-subset = "fa_subset.__main__:main"
 
 [tool.setuptools]
 packages = {find = {where = ["src"]}}
 license-files = ["LICENSE"]
 
 [tool.versioningit]
-write={file="src/fa_subsetter/_version.py"}
+write={file="src/fa_subset/_version.py"}
 
 [tool.versioningit.vcs]
 method = "git"
@@ -47,7 +47,7 @@ default-tag = "0.0.0"
 atomic=true
 force_grid_wrap=0
 include_trailing_comma=true
-known_first_party = ["fa_subsetter"]
+known_first_party = ["fa_subset"]
 known_third_party=[
     "click",
     "requests",
