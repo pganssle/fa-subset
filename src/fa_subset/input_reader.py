@@ -1,7 +1,6 @@
 import functools
 import io
-import operator
-from collections.abc import Iterable, MutableSequence, Sequence
+from collections.abc import Iterable, Sequence
 from pathlib import Path
 
 

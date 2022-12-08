@@ -1,5 +1,3 @@
-import functools
-import itertools
 import textwrap
 from collections.abc import Callable, Iterable, Sequence
 from pathlib import Path
